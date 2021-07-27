@@ -4,7 +4,7 @@ This documentation is for reference to frontend developers.
 
 ## API Endpoints (Users)
 
-- **NOTE:** For all endpoints below, the base URL is: `MYURL`
+- **NOTE:** For all endpoints below, the base URL is: 'https://anywhere-fitness-4u.herokuapp.com'
 
 | Method | Endpoint              | Description                                                                                                                                                                                                                                                                   |
 | ------ | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -61,7 +61,7 @@ These are the expected objects for the endpoints above(this is mostly for the lo
 
 ## API Endpoints (Classes)
 
-- **NOTE:** For all endpoints below, the base URL is: `MYURL`
+- **NOTE:** For all endpoints below, the base URL is: 'https://anywhere-fitness-4u.herokuapp.com'
 
 | Method | Endpoint                  | Description                                                                                                                                                                                                                   |
 | ------ | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
