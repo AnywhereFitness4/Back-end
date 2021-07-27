@@ -2,7 +2,7 @@
 
 // Check class body
 const mainBody = (req, res, next) => {
-  const classData = req.body;
+  const classData = req.body
 
   if (
     !classData.name ||
@@ -15,25 +15,25 @@ const mainBody = (req, res, next) => {
   ) {
     res.status(400).json({
       message:
-        "Please make sure to include name, type, date/time, duration, location, instructor ID, and max class size",
-    });
+        'Please make sure to include name, type, date/time, duration, location, instructor ID, and max class size',
+    })
   } else {
-    next();
+    next()
   }
-};
+}
 
 // Check attendee body
 const attendeeBody = (req, res, next) => {
-  const attendeeData = req.body;
+  const attendeeData = req.body
 
   if (!attendeeData || !attendeeData.user_id) {
-    res.status(400).json("Please specify a user id");
+    res.status(400).json('Please specify a user id')
   } else {
-    next();
+    next()
   }
-};
+}
 
 module.exports = {
   mainBody,
   attendeeBody,
-};
+}

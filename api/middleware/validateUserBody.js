@@ -2,20 +2,20 @@
 
 // Validate body of login request
 const userLogin = (req, res, next) => {
-  const user = req.body;
+  const user = req.body
 
   if (!user.username || !user.password) {
     res
       .status(400)
-      .json({ message: "Please provide a username and password!" });
+      .json({ message: 'Please provide a username and password!' })
   } else {
-    next();
+    next()
   }
-};
+}
 
 // Validate body of registration request
 const userReg = (req, res, next) => {
-  const user = req.body;
+  const user = req.body
 
   if (
     !user.name ||
@@ -25,27 +25,27 @@ const userReg = (req, res, next) => {
     !user.role
   ) {
     res.status(400).json({
-      message: "Please provide a name, email, username, password, role!",
-    });
+      message: 'Please provide a name, email, username, password, role!',
+    })
   } else {
-    next();
+    next()
   }
-};
+}
 
 // Validate body of update request
-const bcrypt = require("bcryptjs");
+const bcrypt = require('bcryptjs')
 
 const userUpdate = (userModel) => async (req, res, next) => {
-  const userData = req.body;
-  const { id } = req.params;
+  const userData = req.body
+  const { id } = req.params
 
   // Check if password is empty. If it is empty, add the one from the database
   if (!userData.password) {
-    const { password } = await userModel.getUserBy("id", id);
-    userData.password = password;
+    const { password } = await userModel.getUserBy('id', id)
+    userData.password = password
   } else {
-    const hash = bcrypt.hashSync(userData.password);
-    userData.password = hash;
+    const hash = bcrypt.hashSync(userData.password)
+    userData.password = hash
   }
 
   if (
@@ -56,16 +56,16 @@ const userUpdate = (userModel) => async (req, res, next) => {
     !userData.role
   ) {
     res.status(400).json({
-      message: "Please provide a name, email, username, role!",
-    });
+      message: 'Please provide a name, email, username, role!',
+    })
   } else {
-    req.userData = userData;
-    next();
+    req.userData = userData
+    next()
   }
-};
+}
 
 module.exports = {
   userLogin,
   userReg,
   userUpdate,
-};
+}
